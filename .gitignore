@@ -70,3 +70,11 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# macOS file that stores custom folder attributes
+.DS_Store
