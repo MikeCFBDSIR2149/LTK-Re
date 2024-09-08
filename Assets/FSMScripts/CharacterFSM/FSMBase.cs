@@ -20,6 +20,7 @@ namespace FSM
         public CommunicationBridge bridge;
         private void InitComponent()
         {
+            bridge = new CommunicationBridge();
             CharacterFSMController.Instance.characterFSMs.Add(bridge.playerID, this);//添加状态机
         }
         #endregion
