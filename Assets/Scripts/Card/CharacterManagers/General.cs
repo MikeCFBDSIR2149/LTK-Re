@@ -15,6 +15,7 @@ public enum CampType
 public abstract class PeopleBase:MonoBehaviour
 {
     public int Gender { get; set; }
+    public string ExtraName { get; set; }
     public string Name { get; set; }
     protected CampType Type { get; set; }
     public int MaxHp { get; set; }
@@ -71,8 +72,8 @@ public class GeneralCamp:PeopleBase
                 break;
         }
     }
-    
-    public virtual void Skill()
+    //技能管理器
+    public virtual void SkillManager()
     {
         // 实现技能逻辑
         
