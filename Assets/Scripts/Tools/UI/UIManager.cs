@@ -13,8 +13,9 @@ public enum E_UILayer
     System,
 }
 
-public class UIManager : MonoBehaviour
+public class UIManager : BaseSingleton<UIManager>
 {
+
     Camera uiCamera;
     Canvas uiCanvas;
     EventSystem uiEventSystem;
@@ -24,14 +25,14 @@ public class UIManager : MonoBehaviour
     private Transform middleLayer;
     private Transform topLayer;
     private Transform systemLayer;
-    private UIManager()
+    public UIManager()
     {
         //动态创建唯一的Canvas和Eventsystem；
         uiCamera = GameObject.Instantiate(Resources.Load("UI/UICamera")).GetComponent<Camera>();
         //UI摄像机不移除 
         GameObject.DontDestroyOnLoad(uiCamera.gameObject);
         //动态创建Canvas
-        uiCanvas = GameObject.Instantiate(Resources.Load("UI/Canvas")).GetComponent<Canvas>();
+        uiCanvas = GameObject.Instantiate(Resources.Load("UI/UICanvas")).GetComponent<Canvas>();
         //设置UI摄像机
         uiCanvas.worldCamera = uiCamera;
         //过场景不移除
@@ -101,7 +102,7 @@ public class UIManager : MonoBehaviour
             return;
         }
         //不存在面板，先加载资源
-        GameObject panelobj = Resources.Load<GameObject>("prefab/UI"); 
+        GameObject panelobj = Resources.Load<GameObject>($"UI/{panelName}"); 
         Transform rootlayer = GetRootLayer(layer);
         //获取UI组件返回出去
         if (rootlayer == null)
