@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SkillCard : Card
 {
-    public SkillTyp skill;
+    public BaseSkill skill;
 
-    public SkillCard(Rank rank, Suit suit,SkillTyp skill) : base(rank, suit)
+    public SkillCard(Rank rank, Suit suit, BaseSkill typ) : base(rank, suit)
     {
-        this.skill = skill;
+        this.skill = typ;
     }
 
     //public override void Skill()
@@ -18,21 +18,21 @@ public class SkillCard : Card
     //}
 }
 
-public enum SkillTyp
-{
-    BreakBridge,
-    StealSheep,
-    Creat,
-    Duel,
-    BorrowKnife,
-    Swear,
-    BumperHarvest,
-    Intrusion,
-    ArrowsShot,
-    Invulnerable,
-    FireAttack,
-    IronChain,
-    Le,
-    NoFood,
-    Lightning
-}
+//public enum SkillTyp
+//{
+//    BreakBridge,
+//    StealSheep,
+//    Creat,
+//    Duel,
+//    BorrowKnife,
+//    Swear,
+//    BumperHarvest,
+//    Intrusion,
+//    ArrowsShot,
+//    Invulnerable,
+//    FireAttack,
+//    IronChain,
+//    Le,
+//    NoFood,
+//    Lightning
+//}

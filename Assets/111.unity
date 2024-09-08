@@ -152,6 +152,22 @@ MonoBehaviour:
   basic: []
   skill: []
   equip: []
+  skills:
+  - {fileID: 11400000, guid: b35fa691582c87d4a8b88c6b40bc1dcb, type: 2}
+  - {fileID: 11400000, guid: 4f677a0e15d7fb5448769422d1809109, type: 2}
+  - {fileID: 11400000, guid: 10bad770f57cf6e49bc8c07abdc7ece6, type: 2}
+  - {fileID: 11400000, guid: 14e28a9e53702b249a4d6070d3e36c98, type: 2}
+  - {fileID: 11400000, guid: 3b5fbb01f1b1f8b4280bc7ea9df75598, type: 2}
+  - {fileID: 11400000, guid: ce38a0c0af01687429be5680c9bd91d1, type: 2}
+  - {fileID: 11400000, guid: f824ff21b0bf0e946a9cad3ec3f4b967, type: 2}
+  - {fileID: 11400000, guid: dd52b350fa2c64047aea7b503a0cb63f, type: 2}
+  - {fileID: 11400000, guid: 9ed78f82cf3df2b4394f961f6f19c99d, type: 2}
+  - {fileID: 11400000, guid: 93f622d064f79be49a2738711e333514, type: 2}
+  - {fileID: 11400000, guid: 3e713bdf919b6cc48aa2d11d491079d6, type: 2}
+  - {fileID: 11400000, guid: 6849ceb495c94b641a3fffdff01fe6cd, type: 2}
+  - {fileID: 11400000, guid: 023cb8da98486a64bb2feee0e67b85c0, type: 2}
+  - {fileID: 11400000, guid: 5f910fbfbe33a1f46bfbeadb25d5e6e1, type: 2}
+  - {fileID: 11400000, guid: 94ca8e93adb60564f8cd77fa8775c765, type: 2}
 --- !u!4 &162838059
 Transform:
   m_ObjectHideFlags: 0
@@ -550,7 +566,6 @@ MonoBehaviour:
   Name: 
   rank: 0
   suit: 0
-  skill: 0
 --- !u!1 &1799721047
 GameObject:
   m_ObjectHideFlags: 0
