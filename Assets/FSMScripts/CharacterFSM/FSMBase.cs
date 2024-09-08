@@ -60,9 +60,13 @@ namespace FSM
             AbandonCardsState abandonCards = new AbandonCardsState();
             states.Add(abandonCards);
             abandonCards.AddMap(FSMTriggerID.FinishAbandon, FSMStateID.Wait);
+            JudgeState judge = new JudgeState();
+            states.Add(judge);
+            judge.AddMap(FSMTriggerID.FinishJudge, FSMStateID.Wait);
             foreach (FSMState state in states)
             {
                 state.AddMap(FSMTriggerID.NoHealth, FSMStateID.BeforeDead);
+                state.AddMap(FSMTriggerID.BeginJudge,FSMStateID.Judge);
             }
         }
         private void InitDefualtState()
