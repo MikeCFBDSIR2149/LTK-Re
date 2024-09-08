@@ -17,7 +17,6 @@ public class ZhangJiao: GeneralCamp
       Name = "张角";
       Type = CampType.Wu;
       MaxHp = 4;
-      Hp = MaxHp;
       NowHp = MaxHp;
       Camp();
       print(ExtraName+" "+Name);
