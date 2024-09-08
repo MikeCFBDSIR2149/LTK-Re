@@ -5,13 +5,13 @@ using UnityEngine;
 namespace FSM
 {
     ///<summary>
-    ///Ìõ¼şÀà
+    ///æ¡ä»¶ç±»
     ///<summary>
     public abstract class FSMTrigger
     {
         public FSMTriggerID TriggerID { get; set; }
         /// <summary>
-        /// ±ØĞë×ö³õÊ¼»¯,Ğ´Id
+        /// å¿…é¡»åšåˆå§‹åŒ–,å†™Id
         /// </summary>
         public FSMTrigger()
         {

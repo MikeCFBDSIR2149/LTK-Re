@@ -6,7 +6,7 @@ using UnityEngine;
 namespace FSM
 {
     ///<summary>
-    ///״̬��
+    ///状态类
     ///<summary>
     public abstract class FSMState
     {
@@ -38,7 +38,7 @@ namespace FSM
                 {
                     FSMStateID stateID = map[Triggers[i].TriggerID];
                     fsm.ChangeActiveState(stateID);
-                    //�л�״̬
+                    //切换状态
                     return;
                 }
             }

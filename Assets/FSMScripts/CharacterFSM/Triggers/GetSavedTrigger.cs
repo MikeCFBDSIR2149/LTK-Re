@@ -5,7 +5,7 @@ using UnityEngine;
 namespace FSM
 {
     ///<summary>
-    ///ÓĞÈË¾ÈÌõ¼ş
+    ///æœ‰äººæ•‘æ¡ä»¶
     ///<summary>
     public class GetSavedTrigger : FSMTrigger
     {

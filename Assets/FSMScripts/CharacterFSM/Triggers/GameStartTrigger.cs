@@ -5,7 +5,7 @@ using UnityEngine;
 namespace FSM
 {
     ///<summary>
-    ///ÓÎÏ·¿ªÊ¼Ìõ¼ş
+    ///æ¸¸æˆå¼€å§‹æ¡ä»¶
     ///<summary>
     public class GameStartTrigger : FSMTrigger
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace FSM
 {
     ///<summary>
-    ///±»Ñ¡Ôñ½×¶Î
+    ///è¢«é€‰æ‹©é˜¶æ®µ
     ///<summary>
     public class BeChosenState : FSMState
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace FSM
 {
     ///<summary>
-    ///结束出牌条件
+    ///缁撴潫鍑虹墝鏉′欢
     ///<summary>
     public class FinishPlayTrigger : FSMTrigger
     {

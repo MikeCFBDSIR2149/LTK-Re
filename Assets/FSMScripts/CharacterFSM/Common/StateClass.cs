@@ -9,28 +9,28 @@ namespace FSM
     ///<summary>
     public enum FSMStateID
     {
-        Start,//¿ª¾Ö
-        Wait,//µÈ´ıÆäËûÍæ¼Ò²Ù×÷
-        BeChosen,//±»Ñ¡Ôñ
-        TrueDead,//ËÀÍö
-        BeforeDead,//±ôËÀ
-        ReceiveCards,//·¢ÅÆ
-        PlayCards,//³öÅÆ
-        AbandonCards//ÆúÅÆ
+        Start,//å¼€å±€
+        Wait,//ç­‰å¾…å…¶ä»–ç©å®¶æ“ä½œ
+        BeChosen,//è¢«é€‰æ‹©
+        TrueDead,//æ­»äº¡
+        BeforeDead,//æ¿’æ­»
+        ReceiveCards,//å‘ç‰Œ
+        PlayCards,//å‡ºç‰Œ
+        AbandonCards//å¼ƒç‰Œ
     }
 
     public enum FSMTriggerID
     {
-        NoHealth,//ÉúÃüÎª0
-        GetSaved,//±»¾ÈÁË
-        NoSave,//Ã»ÓĞÈË¾È
-        ToBeChosen,//±»Ñ¡Ôñ
-        GameStart,//ÓÎÏ·¿ªÊ¼
-        AfterStart,//¿ª¾ÖÖ®ºó
-        Action,//Íæ¼ÒĞĞ¶¯
-        FinishReceive,//½áÊø·¢ÅÆ
-        FinishPlay,//½áÊø³öÅÆ
-        FinishAbandon,//½áÊøÆúÅÆ
-        FinishBeChosen//½áÊø±»Ñ¡Ôñ
+        NoHealth,//ç”Ÿå‘½ä¸º0
+        GetSaved,//è¢«æ•‘äº†
+        NoSave,//æ²¡æœ‰äººæ•‘
+        ToBeChosen,//è¢«é€‰æ‹©
+        GameStart,//æ¸¸æˆå¼€å§‹
+        AfterStart,//å¼€å±€ä¹‹å
+        Action,//ç©å®¶è¡ŒåŠ¨
+        FinishReceive,//ç»“æŸå‘ç‰Œ
+        FinishPlay,//ç»“æŸå‡ºç‰Œ
+        FinishAbandon,//ç»“æŸå¼ƒç‰Œ
+        FinishBeChosen//ç»“æŸè¢«é€‰æ‹©
     }
 }

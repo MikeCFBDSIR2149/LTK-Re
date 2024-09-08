@@ -5,7 +5,7 @@ using UnityEngine;
 namespace FSM
 {
     ///<summary>
-    ///没有人救条件
+    ///娌℃湁浜烘晳鏉′欢
     ///<summary>
     public class NoSaveTrigger : FSMTrigger
     {

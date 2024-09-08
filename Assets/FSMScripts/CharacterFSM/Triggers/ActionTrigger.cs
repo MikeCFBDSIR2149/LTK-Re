@@ -5,7 +5,7 @@ using UnityEngine;
 namespace FSM
 {
     ///<summary>
-    ///玩家行动条件
+    ///鐜╁琛屽姩鏉′欢
     ///<summary>
     public class ActionTrigger : FSMTrigger
     {

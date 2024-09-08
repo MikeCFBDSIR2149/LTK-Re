@@ -5,7 +5,7 @@ using UnityEngine;
 namespace FSM
 {
     ///<summary>
-    ///½áÊøÆúÅÆÌõ¼ş
+    ///ç»“æŸå¼ƒç‰Œæ¡ä»¶
     ///<summary>
     public class FinishBeChosenTrigger : FSMTrigger
     {

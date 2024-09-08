@@ -5,7 +5,7 @@ using UnityEngine;
 namespace FSM
 {
     ///<summary>
-    ///玩家被选择条件
+    ///鐜╁琚�夋嫨鏉′欢
     ///<summary>
     public class ToBeChosenTrigger : FSMTrigger
     {

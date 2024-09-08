@@ -5,7 +5,7 @@ using UnityEngine;
 namespace FSM
 {
     ///<summary>
-    ///等待其他玩家出牌阶段
+    ///绛夊緟鍏朵粬鐜╁鍑虹墝闃舵
     ///<summary>
     public class WaitState : FSMState
     {

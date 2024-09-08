@@ -5,7 +5,7 @@ using UnityEngine;
 namespace FSM
 {
     ///<summary>
-    ///开局之后条件
+    ///寮�灞�涔嬪悗鏉′欢
     ///<summary>
     public class AfterStartTrigger : FSMTrigger
     {

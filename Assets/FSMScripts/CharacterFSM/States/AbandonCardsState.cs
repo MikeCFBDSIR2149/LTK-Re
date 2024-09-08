@@ -5,7 +5,7 @@ using UnityEngine;
 namespace FSM
 {
     ///<summary>
-    ///ÆúÅÆ½×¶Î
+    ///å¼ƒç‰Œé˜¶æ®µ
     ///<summary>
     public class AbandonCardsState : FSMState
     {

@@ -14,7 +14,7 @@ namespace FSM
     public class CharacterFSMController : MonoSingleton<CharacterFSMController>
     {
         [HideInInspector]
-        public Dictionary<int, FSMBase> characterFSMs;//key:Íæ¼ÒID£¬value£ºÍæ¼Ò×´Ì¬»ú
+        public Dictionary<int, FSMBase> characterFSMs;//key:ç©å®¶IDï¼Œvalueï¼šç©å®¶çŠ¶æ€æœº
 
         private int roundValue;
         [HideInInspector]

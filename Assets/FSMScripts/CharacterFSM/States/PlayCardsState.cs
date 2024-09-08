@@ -5,7 +5,7 @@ using UnityEngine;
 namespace FSM
 {
     ///<summary>
-    ///³öÅÆ½×¶Î
+    ///å‡ºç‰Œé˜¶æ®µ
     ///<summary>
     public class PlayCardsState : FSMState
     {

@@ -16,13 +16,13 @@ namespace FSM
         private FSMState currentState;
         private FSMState defaultState;
 
-        #region ²éÕÒÊı¾İ
+        #region æŸ¥æ‰¾æ•°æ®
         [HideInInspector]
-        //public CharacterBasic characterBasic;//Íæ¼Ò½Å±¾
+        //public CharacterBasic characterBasic;//ç©å®¶è„šæœ¬
         private void InitComponent()
         {
             //characterBasic = GetComponent<CharacterBasic>();
-            //CharacterFSMController.Instance.characterFSMs.Add(characterBasic.playerID,this)//Ìí¼Ó×´Ì¬»ú
+            //CharacterFSMController.Instance.characterFSMs.Add(characterBasic.playerID,this)//æ·»åŠ çŠ¶æ€æœº
         }
         #endregion
 
@@ -73,7 +73,7 @@ namespace FSM
         }
         public void Update()
         {
-            currentState.Reason(this);//¼ì²â
+            currentState.Reason(this);//æ£€æµ‹
             currentState.ActionState(this);
         }
         public void ChangeActiveState(FSMStateID stateID)

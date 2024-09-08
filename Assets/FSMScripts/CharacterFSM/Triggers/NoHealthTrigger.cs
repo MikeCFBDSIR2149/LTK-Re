@@ -2,7 +2,7 @@
 namespace FSM
 {
     ///<summary>
-    ///没有生命条件
+    ///娌℃湁鐢熷懡鏉′欢
     ///<summary>
     public class NoHealthTrigger : FSMTrigger
     { 

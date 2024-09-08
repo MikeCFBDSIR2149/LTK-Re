@@ -5,7 +5,7 @@ using UnityEngine;
 namespace FSM
 {
     ///<summary>
-    ///±ôËÀ½×¶Î
+    ///æ¿’æ­»é˜¶æ®µ
     ///<summary>
     public class BeforeDeadState : FSMState
     {
