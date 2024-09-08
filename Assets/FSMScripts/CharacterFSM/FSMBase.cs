@@ -17,12 +17,10 @@ namespace FSM
         private FSMState defaultState;
 
         #region 查找数据
-        [HideInInspector]
-        //public CharacterBasic characterBasic;//玩家脚本
+        public CommunicationBridge bridge;
         private void InitComponent()
         {
-            //characterBasic = GetComponent<CharacterBasic>();
-            //CharacterFSMController.Instance.characterFSMs.Add(characterBasic.playerID,this)//添加状态机
+            CharacterFSMController.Instance.characterFSMs.Add(bridge.playerID, this);//添加状态机
         }
         #endregion
 

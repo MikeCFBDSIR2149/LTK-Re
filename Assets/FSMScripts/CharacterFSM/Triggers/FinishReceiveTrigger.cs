@@ -11,7 +11,7 @@ namespace FSM
     {
         public override bool HandleTrigger(FSMBase fsm)
         {
-            return false;
+            return fsm.bridge.receiveOver;
         }
 
         public override void Init()

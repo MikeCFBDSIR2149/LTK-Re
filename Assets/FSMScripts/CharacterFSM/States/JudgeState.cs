@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,5 +15,10 @@ namespace FSM
         }
         public override void EnterState(FSMBase fsm)
         { }
+        public override void ExitState(FSMBase fsm)
+        {
+            base.ExitState(fsm);
+            fsm.bridge.judgeOver = true;
+        }
     }
 }

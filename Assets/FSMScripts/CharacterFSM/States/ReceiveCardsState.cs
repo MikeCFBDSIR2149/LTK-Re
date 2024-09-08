@@ -15,6 +15,11 @@ namespace FSM
         }
         public override void EnterState(FSMBase fsm)
         { }
+        public override void ExitState(FSMBase fsm)
+        {
+            base.ExitState(fsm);
+            fsm.bridge.receiveOver = false;
+        }
     }
 }
 

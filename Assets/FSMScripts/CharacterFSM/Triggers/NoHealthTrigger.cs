@@ -8,7 +8,7 @@ namespace FSM
     { 
         public override bool HandleTrigger(FSMBase fsm)
         { 
-            return false;
+            return fsm.bridge.playerCurrentHealth <=0;
         }
 
         public override void Init()

@@ -11,7 +11,7 @@ namespace FSM
     {
         public override bool HandleTrigger(FSMBase fsm)
         {
-            return false;
+            return CharacterFSMController.Instance.currentRound == RoundState.Start;
         }
 
         public override void Init()

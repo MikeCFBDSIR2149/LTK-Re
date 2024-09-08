@@ -11,7 +11,8 @@ namespace FSM
     {
         public override bool HandleTrigger(FSMBase fsm)
         {
-            return false;
+            CommunicationBridge comBridge = fsm.bridge;
+            return comBridge.abandonCardsPermisson || comBridge.playerCurrentHealth >= comBridge.playerCardsNum;
         }
 
         public override void Init()

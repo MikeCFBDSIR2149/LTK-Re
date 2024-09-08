@@ -15,7 +15,9 @@ namespace FSM
     {
         [HideInInspector]
         public Dictionary<int, FSMBase> characterFSMs;//key:玩家ID，value：玩家状态机
-
+        [HideInInspector]
+        public List<int> playerIDs;//确定玩家顺序
+        private int idsIndex=0;
         private int roundValue;
         [HideInInspector]
         public int round
@@ -30,6 +32,7 @@ namespace FSM
                 {
                     characterAction[id] = false;
                 }
+                characterFSMs[playerIDs[idsIndex]].bridge.actionPermission = true;
             }
         }
         [HideInInspector]
@@ -67,12 +70,27 @@ namespace FSM
         {
             foreach (var character in characterFSMs.Values)
             {
-
+                character.bridge.InitPermission();
             }
         }
         private void EndGame()
         {
 
+        }
+        private void Update()
+        {
+            if(GotoNextRound())
+                round++;
+        }
+
+        private bool GotoNextRound()
+        {
+            foreach (bool flag in characterAction.Values)
+            {
+                if (!flag)
+                    return false;
+            }
+            return true;
         }
     }
 }
