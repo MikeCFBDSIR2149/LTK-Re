@@ -2,22 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//ĞèÒª¹ÒÔØµÄµ¥Àı½Å±¾
-[DisallowMultipleComponent]//½ûÖ¹Í¬Ò»ÎïÌå¶à´Î¹ÒÔØ
+//éœ€è¦æŒ‚è½½çš„å•ä¾‹è„šæœ¬
+[DisallowMultipleComponent]//ç¦æ­¢åŒä¸€ç‰©ä½“å¤šæ¬¡æŒ‚è½½
 public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
 {
-    private  static  T  instance;
+    private static T instance;
     public static T Instance 
     {   get 
         {
             if (instance == null)
             {
-                //ÊÖ¶¯¹ÒÔØÊ½
+                //æ‰‹åŠ¨æŒ‚è½½å¼
                 instance = FindAnyObjectByType<T>();
-                //×Ô¶¯¹ÒÔØÊ½
+                //è‡ªåŠ¨æŒ‚è½½å¼
                 if (instance == null)
                 {
-                    //·Ç¹ÒÔØÊ½µ¥ÀıÔÚ±»µ÷ÓÃÊ±Ö±½Ó´´½¨
+                    //éæŒ‚è½½å¼å•ä¾‹åœ¨è¢«è°ƒç”¨æ—¶ç›´æ¥åˆ›å»º
                     GameObject newManager = new GameObject(typeof(T) + "SingleManager");
                     instance = newManager.AddComponent<T>();
                     DontDestroyOnLoad(newManager);
@@ -29,17 +29,17 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
     }
     protected virtual void Awake() 
     {
-        //ÊÖ¶¯ÖØ¸´¹ÒÔØ¼ì²â
-        if(instance!=null)
+        //æ‰‹åŠ¨é‡å¤æŒ‚è½½æ£€æµ‹
+        if(instance != null)
         {
             Destroy(this);
             return;
         }
 
-        //×Ô¶¯¹ÒÔØÊ½³õÊ¼»¯
-        if(instance==null)
+        //è‡ªåŠ¨æŒ‚è½½å¼åˆå§‹åŒ–
+        if(instance == null)
         {
-            instance=this as T; 
+            instance = this as T; 
         }
         DontDestroyOnLoad(this.gameObject);
 
