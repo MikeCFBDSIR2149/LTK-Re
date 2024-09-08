@@ -14,7 +14,7 @@ public class Deck : MonoBehaviour
     public SkillSO[] skills;
     public Dictionary<SkillSO,BaseSkill> skilldic = new Dictionary<SkillSO,BaseSkill>();
 
-    //#region ¼¼ÄÜSOÎÄ¼ş
+    //#region æŠ€èƒ½SOæ–‡ä»¶
     //public SkillSO ArrowsShot;
     //public SkillSO BreakBridge;
     //public SkillSO StealSheep;
@@ -32,7 +32,7 @@ public class Deck : MonoBehaviour
     //public SkillSO Lightning;
     //#endregion
 
-    //#region ¼¼ÄÜ½Å±¾
+    //#region æŠ€èƒ½è„šæœ¬
     //public ArrowsShot arrowsShot;
     //public BreakBridge breakBridge;
     //public StealSheep stealSheep;
@@ -76,7 +76,7 @@ public class Deck : MonoBehaviour
         Shuffle();
     }
 
-    //³õÊ¼»¯¿¨ÅÆ
+    //åˆå§‹åŒ–å¡ç‰Œ
     private void InitCard()
     {
         for (int i = 0; i < skills.Length; i++)
@@ -89,7 +89,7 @@ public class Deck : MonoBehaviour
         }
     }
 
-    //Éú³ÉÅÆ×é
+    //ç”Ÿæˆç‰Œç»„
     private void CreatDeck()
     {
         deck.AddRange(basic);
@@ -97,7 +97,7 @@ public class Deck : MonoBehaviour
         deck.AddRange(equip);
     }
 
-    //Ï´ÅÆ
+    //æ´—ç‰Œ
     private void Shuffle()
     {
         System.Random rng = new System.Random();

@@ -15,7 +15,7 @@ public class Card : MonoBehaviour
         this.suit = suit;
     }
 
-    //ĞèÒª´«Èë¶ÔÏó
+    //éœ€è¦ä¼ å…¥å¯¹è±¡
     //public virtual void Skill() { }
 
 }

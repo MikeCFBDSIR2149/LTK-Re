@@ -12,7 +12,7 @@ public class BasicCard : Card
         this.typ = Typ;
     }
 
-    //ĞèÒª´«Èë¶ÔÏó
+    //éœ€è¦ä¼ å…¥å¯¹è±¡
     //public override void Skill()
     //{
     //    base.Skill();
