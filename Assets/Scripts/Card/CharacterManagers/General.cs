@@ -18,9 +18,21 @@ public abstract class PeopleBase:MonoBehaviour
     public string ExtraName { get; set; }
     public string Name { get; set; }
     protected CampType Type { get; set; }
-    public int MaxHp { get; set; }
+    public int MaxHp 
+    { 
+        get
+        {
+            return maxHpValuel;
+        }
+        set
+        {
+            maxHpValuel = value;
+            Hp = MaxHp;
+        }
+    }
 
-    public int Hp { get; set; }
+    private int maxHpValuel;
+    public int Hp;
     public int NowHp { get; set; }
     
     
@@ -35,7 +47,6 @@ public class GeneralCamp:PeopleBase
     private GeneralDelegate suDelegate;
     private GeneralDelegate weiDelegate;
 
-    
     public void Wu()
     {
         print("吴");
