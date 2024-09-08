@@ -16,7 +16,8 @@ namespace FSM
         BeforeDead,//濒死
         ReceiveCards,//发牌
         PlayCards,//出牌
-        AbandonCards//弃牌
+        AbandonCards,//弃牌
+        Judge//PanDing
     }
 
     public enum FSMTriggerID
@@ -31,6 +32,8 @@ namespace FSM
         FinishReceive,//结束发牌
         FinishPlay,//结束出牌
         FinishAbandon,//结束弃牌
-        FinishBeChosen//结束被选择
+        FinishBeChosen,//结束被选择
+        BeginJudge,//KaiShiPanDing
+        FinishJudge//JieShuPanDing
     }
 }
