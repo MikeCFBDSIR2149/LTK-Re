@@ -9,13 +9,13 @@ public class EventCenter : MonoBehaviour
 
     private Dictionary<E_EventType, IEventInfo> eventDic = new Dictionary<E_EventType, IEventInfo>();
 
-    /*ÎŞ²Î****************************************************************/
+    /*æ— å‚****************************************************************/
 
     public void AddEventListener(E_EventType name, UnityAction action)
     {
         if (eventDic.ContainsKey(name))
         {
-            //¸¸ÏÈasÎª×ÓÀà
+            //çˆ¶å…ˆasä¸ºå­ç±»
             (eventDic[name] as EventInfo).actions += action;
         }
         else
@@ -40,12 +40,12 @@ public class EventCenter : MonoBehaviour
         }
     }
 
-    /*ÓĞ²Î****************************************************************/
+    /*æœ‰å‚****************************************************************/
     public void AddEventListener<T>(E_EventType name, UnityAction<T> action)
     {
         if (eventDic.ContainsKey(name))
         {
-            //ÒòÎªÊÇ¸¸Àà£¨IEventInfo£©×°×ÓÀà£¨EventInfo<T>£©£¬ÏÈasÎª×ÓÀà£¨EventInfo<T>£©£¬ÔÙÊ¹ÓÃÆäÖĞµÄactions
+            //å› ä¸ºæ˜¯çˆ¶ç±»ï¼ˆIEventInfoï¼‰è£…å­ç±»ï¼ˆEventInfo<T>ï¼‰ï¼Œå…ˆasä¸ºå­ç±»ï¼ˆEventInfo<T>ï¼‰ï¼Œå†ä½¿ç”¨å…¶ä¸­çš„actions
             (eventDic[name] as EventInfo<T>).actions += action;
         }
         else
@@ -75,12 +75,12 @@ public class EventCenter : MonoBehaviour
 
 }
 
-//ÊÇÎªÁË°ü¹ü¶ÔÓ¦¹Û²ìÕß º¯ÊıÎ¯ÍĞµÄ Àà
+//æ˜¯ä¸ºäº†åŒ…è£¹å¯¹åº”è§‚å¯Ÿè€… å‡½æ•°å§”æ‰˜çš„ ç±»
 public class EventInfo : IEventInfo
 {
     public UnityAction actions;
 
-    //ÕæÕı¹Û²ìÕß ¶ÔÓ¦µÄ º¯ÊıĞÅÏ¢ ¼ÇÂ¼ÔÚÆäÖĞ
+    //çœŸæ­£è§‚å¯Ÿè€… å¯¹åº”çš„ å‡½æ•°ä¿¡æ¯ è®°å½•åœ¨å…¶ä¸­
     public EventInfo(UnityAction action)
     {
         actions += action;
@@ -97,22 +97,22 @@ public class EventInfo<T> : IEventInfo
     }
 }
 
-//´Ë½Ó¿ÚÓÃÓÚÀïÊÏÌæ»»Ô­Ôò ×°ÔØ×ÓÀàµÄ ¸¸Àà£¬Ä¿±êµ÷¸¸Ö´ĞĞ×ÓÖĞµÄ
+//æ­¤æ¥å£ç”¨äºé‡Œæ°æ›¿æ¢åŸåˆ™ è£…è½½å­ç±»çš„ çˆ¶ç±»ï¼Œç›®æ ‡è°ƒçˆ¶æ‰§è¡Œå­ä¸­çš„
 public interface IEventInfo
 {
 }
 public enum E_EventType
 {
-    E_NoHealth,//ÉúÃüÎª0
-    E_GetSaved,//±»¾ÈÁË
-    E_NoSave,//Ã»ÓĞÈË¾È
-    E_ToBeChosen,//±»Ñ¡Ôñ
-    E_GameStart,//ÓÎÏ·¿ªÊ¼
-    E_AfterStart,//¿ª¾ÖÖ®ºó
-    E_Action,//Íæ¼ÒĞĞ¶¯
-    E_FinishReceive,//½áÊø·¢ÅÆ
-    E_FinishPlay,//½áÊø³öÅÆ
-    E_FinishAbandon,//½áÊøÆúÅÆ
-    E_FinishBeChosen//½áÊø±»Ñ¡Ôñ
+    E_NoHealth,//ç”Ÿå‘½ä¸º0
+    E_GetSaved,//è¢«æ•‘äº†
+    E_NoSave,//æ²¡æœ‰äººæ•‘
+    E_ToBeChosen,//è¢«é€‰æ‹©
+    E_GameStart,//æ¸¸æˆå¼€å§‹
+    E_AfterStart,//å¼€å±€ä¹‹å
+    E_Action,//ç©å®¶è¡ŒåŠ¨
+    E_FinishReceive,//ç»“æŸå‘ç‰Œ
+    E_FinishPlay,//ç»“æŸå‡ºç‰Œ
+    E_FinishAbandon,//ç»“æŸå¼ƒç‰Œ
+    E_FinishBeChosen//ç»“æŸè¢«é€‰æ‹©
 
 }
