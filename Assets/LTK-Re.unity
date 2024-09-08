@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1059c1ec22c61e4e8ad8d5dda6f2bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skill: {fileID: 0}
 --- !u!4 &645691426
 Transform:
   m_ObjectHideFlags: 0
@@ -176,6 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 639f5a2309cea624fb00fa974584d237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  generalCamp: {fileID: 645691425}
 --- !u!1 &1777922088
 GameObject:
   m_ObjectHideFlags: 0

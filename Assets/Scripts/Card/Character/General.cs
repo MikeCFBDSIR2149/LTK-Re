@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
+using Unity.VisualScripting;
 using UnityEngine;
 //角色阵营
 public enum CampType
@@ -14,21 +16,25 @@ public abstract class PeopleBase:MonoBehaviour
 {
     public int Gender { get; set; }
     public string Name { get; set; }
-    public CampType Type { get; set; }
+    protected CampType Type { get; set; }
+    public int MaxHp { get; set; }
+
+    public int Hp { get; set; }
+    public int NowHp { get; set; }
     
-    public abstract void Skill();
+    
 }
 //角色阵营分配以及阵营相关
 public class GeneralCamp:PeopleBase
 {
-    public delegate void GeneralDelegate();
+    
+    private delegate void GeneralDelegate();
 
-    public GeneralDelegate WuDelegate;
-    public GeneralDelegate SuDelegate;
-    public GeneralDelegate WeiDelegate;
+    private GeneralDelegate wuDelegate;
+    private GeneralDelegate suDelegate;
+    private GeneralDelegate weiDelegate;
 
-  
-
+    
     public void Wu()
     {
         print("吴");
@@ -46,19 +52,19 @@ public class GeneralCamp:PeopleBase
 //利用委托实现阵营相关
     public void Camp()
     {
-        WuDelegate = Wu;
-        SuDelegate = Su;
-        WeiDelegate = Wei;
+        wuDelegate = Wu;
+        suDelegate = Su;
+        weiDelegate = Wei;
         switch (Type)
         {
             case CampType.Wu:
-                WuDelegate.Invoke();
+                wuDelegate.Invoke();
                 break;
             case CampType.Su:
-                SuDelegate.Invoke();
+                suDelegate.Invoke();
                 break;
             case CampType.Wei:
-                WeiDelegate.Invoke();
+                weiDelegate.Invoke();
                 break;
             default:
                 Debug.LogError("Unknown CampType");
@@ -66,10 +72,21 @@ public class GeneralCamp:PeopleBase
         }
     }
     
-    public override void Skill()
+    public virtual void Skill()
     {
         // 实现技能逻辑
         
     }
+
+    public void Current()
+    {
+        
+        int currentHp = Hp;
+        if (currentHp != NowHp)
+        {
+            Hp = NowHp;
+            print("Hp="+Hp);
+        }
+    }   
 }
     
