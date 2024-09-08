@@ -2,9 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestPanel : MonoBehaviour
+public class TestPanel :UIPanel
 {
-    // Start is called before the first frame update
+    public override void HidePanel()
+    {
+        print("ClosePanel");
+    }
+
+    public override void ShowPanel()
+    {
+        print("ShoePanel");
+    }
+
+    public void TestFun()
+    {
+        Debug.Log("测试通过");
+    }
+  
     void Start()
     {
         
