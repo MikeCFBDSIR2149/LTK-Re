@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Searcher.Searcher.AnalyticsEvent;
 using UnityEngine.Events;
-public class EventCenter : MonoBehaviour
+public class EventCenter : BaseSingleton<EventCenter>
 {
-    private EventCenter() { }
+    public EventCenter() { }
 
     private Dictionary<E_EventType, IEventInfo> eventDic = new Dictionary<E_EventType, IEventInfo>();
 
