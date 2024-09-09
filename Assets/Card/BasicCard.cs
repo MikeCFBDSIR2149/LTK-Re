@@ -5,24 +5,7 @@ using UnityEngine;
 
 public class BasicCard : Card
 {
-    public Typ typ;
-
-    public BasicCard(Rank rank, Suit suit,Typ Typ) : base(rank, suit)
+    public BasicCard(Rank rank, Suit suit, BaseSkill skill) : base(rank, suit, skill)
     {
-        this.typ = Typ;
     }
-
-    //需要传入对象
-    //public override void Skill()
-    //{
-    //    base.Skill();
-
-    //}
-}
-
-public enum Typ
-{
-    Kill,
-    Dodge,
-    Life
 }

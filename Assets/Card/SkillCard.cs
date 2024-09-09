@@ -4,35 +4,7 @@ using UnityEngine;
 
 public class SkillCard : Card
 {
-    public BaseSkill skill;
-
-    public SkillCard(Rank rank, Suit suit, BaseSkill typ) : base(rank, suit)
+    public SkillCard(Rank rank, Suit suit, BaseSkill skill) : base(rank, suit, skill)
     {
-        this.skill = typ;
     }
-
-    //public override void Skill()
-    //{
-    //    base.Skill();
-
-    //}
 }
-
-//public enum SkillTyp
-//{
-//    BreakBridge,
-//    StealSheep,
-//    Creat,
-//    Duel,
-//    BorrowKnife,
-//    Swear,
-//    BumperHarvest,
-//    Intrusion,
-//    ArrowsShot,
-//    Invulnerable,
-//    FireAttack,
-//    IronChain,
-//    Le,
-//    NoFood,
-//    Lightning
-//}

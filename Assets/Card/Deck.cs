@@ -1,54 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Deck : MonoBehaviour
 {
     public List<Card> deck = new List<Card>();
 
-    public List<BasicCard> basic = new List<BasicCard>();
-    public List<SkillCard> skill = new List<SkillCard>();
-    public List<EquipCard> equip = new List<EquipCard>();
-
     public SkillSO[] skills;
     public Dictionary<SkillSO,BaseSkill> skilldic = new Dictionary<SkillSO,BaseSkill>();
-
-    //#region 技能SO文件
-    //public SkillSO ArrowsShot;
-    //public SkillSO BreakBridge;
-    //public SkillSO StealSheep;
-    //public SkillSO Creat;
-    //public SkillSO Duel;
-    //public SkillSO BorrowKnife;
-    //public SkillSO Swear;
-    //public SkillSO BumperHarvest;
-    //public SkillSO Intrusion;
-    //public SkillSO Invulnerable;
-    //public SkillSO FireAttack;
-    //public SkillSO IronChain;
-    //public SkillSO Le;
-    //public SkillSO NoFood;
-    //public SkillSO Lightning;
-    //#endregion
-
-    //#region 技能脚本
-    //public ArrowsShot arrowsShot;
-    //public BreakBridge breakBridge;
-    //public StealSheep stealSheep;
-    //public Creat creat;
-    //public Duel duel;
-    //public BorrowKnife borrowKnife;
-    //public Swear swear;
-    //public BumperHarvest bumperHarvest;
-    //public Intrusion intrusion;
-    //public Invulnerable invulnerable;
-    //public FireAttack fireAttack;
-    //public IronChain ironChain;
-    //public Le le;
-    //public NoFood noFood;
-    //public Lightning lightning;
-    //#endregion
 
     private void Awake()
     {
@@ -72,9 +33,25 @@ public class Deck : MonoBehaviour
     void Start()
     {
         InitCard();
-        CreatDeck();
         Shuffle();
     }
+
+    //测试代码
+    int tst = 0;
+    public GameObject nextcard;
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (nextcard.GetComponent<BaseSkill>() != null)
+            {
+                DestroyImmediate(nextcard.GetComponent<BaseSkill>());
+            }
+            AddSkillToCard(nextcard, deck[tst]);
+            tst++;
+        }
+    }
+    //
 
     //初始化卡牌
     private void InitCard()
@@ -83,18 +60,18 @@ public class Deck : MonoBehaviour
         {
             for (int j = 0; j < skills[i].ranks.Count; j++)
             {
-                SkillCard card = new SkillCard(skills[i].ranks[j], skills[i].suits[j], skilldic[skills[i]]);
+                Card card = new Card(skills[i].ranks[j], skills[i].suits[j], skilldic[skills[i]]);
                 deck.Add(card);
             }
         }
     }
 
-    //生成牌组
-    private void CreatDeck()
+    //添加牌库中牌的技能组件到物体上
+    private void AddSkillToCard(GameObject obj, Card card)
     {
-        deck.AddRange(basic);
-        deck.AddRange(skill);
-        deck.AddRange(equip);
+        var newSkill = obj.AddComponent(card.skill.GetType());
+        newSkill.GetComponent<BaseSkill>().rank = card.rank;
+        newSkill.GetComponent<BaseSkill>().suit = card.suit;
     }
 
     //洗牌

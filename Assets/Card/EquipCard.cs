@@ -5,10 +5,7 @@ using UnityEngine;
 
 public class EquipCard : Card
 {
-    public int distance;
-
-    public EquipCard(Rank rank, Suit suit,int distance) : base(rank, suit)
+    public EquipCard(Rank rank, Suit suit, BaseSkill skill) : base(rank, suit, skill)
     {
-        this.distance = distance;
     }
 }
