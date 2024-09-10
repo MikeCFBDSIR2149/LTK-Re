@@ -99,6 +99,6 @@ public class GeneralCamp:PeopleBase
             Hp = NowHp;
             print("Hp="+Hp);
         }
-    }   
+    } 
 }
     
