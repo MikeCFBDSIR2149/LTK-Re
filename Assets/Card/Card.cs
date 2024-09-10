@@ -8,9 +8,9 @@ public class Card
     public string Name;
     public Rank rank;
     public Suit suit;
-    public BaseSkill skill;
+    public Type skill;
 
-    public Card(Rank rank, Suit suit, BaseSkill skill)
+    public Card(Rank rank, Suit suit, Type skill)
     {
         this.rank = rank;
         this.suit = suit;

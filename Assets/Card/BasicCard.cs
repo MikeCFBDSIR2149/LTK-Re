@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BasicCard : Card
 {
-    public BasicCard(Rank rank, Suit suit, BaseSkill skill) : base(rank, suit, skill)
+    public BasicCard(Rank rank, Suit suit, Type skill) : base(rank, suit, skill)
     {
     }
 }

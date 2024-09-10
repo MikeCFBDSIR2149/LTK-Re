@@ -9,25 +9,25 @@ public class Deck : MonoBehaviour
     public List<Card> deck = new List<Card>();
 
     public SkillSO[] skills;
-    public Dictionary<SkillSO,BaseSkill> skilldic = new Dictionary<SkillSO,BaseSkill>();
+    public Dictionary<SkillSO,Type> skilldic = new Dictionary<SkillSO,Type>();
 
     private void Awake()
     {
-        skilldic.Add(skills[0], new ArrowsShot());
-        skilldic.Add(skills[1], new BorrowKnife());
-        skilldic.Add(skills[2], new BreakBridge());
-        skilldic.Add(skills[3], new BumperHarvest());
-        skilldic.Add(skills[4], new Creat());
-        skilldic.Add(skills[5], new Duel());
-        skilldic.Add(skills[6], new FireAttack());
-        skilldic.Add(skills[7], new Intrusion());
-        skilldic.Add(skills[8], new Invulnerable());
-        skilldic.Add(skills[9], new IronChain());
-        skilldic.Add(skills[10], new Le());
-        skilldic.Add(skills[11], new Lightning());
-        skilldic.Add(skills[12], new NoFood());
-        skilldic.Add(skills[13], new StealSheep());
-        skilldic.Add(skills[14], new Swear());
+        skilldic.Add(skills[0], typeof(ArrowsShot));
+        skilldic.Add(skills[1], typeof(BorrowKnife));
+        skilldic.Add(skills[2], typeof(BreakBridge));
+        skilldic.Add(skills[3], typeof(BumperHarvest));
+        skilldic.Add(skills[4], typeof(Creat));
+        skilldic.Add(skills[5], typeof(Duel));
+        skilldic.Add(skills[6], typeof(FireAttack));
+        skilldic.Add(skills[7], typeof(Intrusion));
+        skilldic.Add(skills[8], typeof(Invulnerable));
+        skilldic.Add(skills[9], typeof(IronChain));
+        skilldic.Add(skills[10], typeof(Le));
+        skilldic.Add(skills[11], typeof(Lightning));
+        skilldic.Add(skills[12], typeof(NoFood));
+        skilldic.Add(skills[13], typeof(StealSheep));
+        skilldic.Add(skills[14], typeof(Swear));
     }
 
     void Start()
@@ -69,7 +69,7 @@ public class Deck : MonoBehaviour
     //添加牌库中牌的技能组件到物体上
     private void AddSkillToCard(GameObject obj, Card card)
     {
-        var newSkill = obj.AddComponent(card.skill.GetType());
+        var newSkill = obj.AddComponent(card.skill);
         newSkill.GetComponent<BaseSkill>().rank = card.rank;
         newSkill.GetComponent<BaseSkill>().suit = card.suit;
     }
