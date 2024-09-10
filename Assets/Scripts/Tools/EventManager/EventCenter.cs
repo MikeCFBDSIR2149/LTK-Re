@@ -39,6 +39,7 @@ public class EventCenter : BaseSingleton<EventCenter>
             (eventDic[name] as EventInfo).actions -= action;
         }
     }
+    
 
     /*有参****************************************************************/
     public void AddEventListener<T>(E_EventType name, UnityAction<T> action)
