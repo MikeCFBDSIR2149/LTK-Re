@@ -114,6 +114,7 @@ public enum E_EventType
     E_FinishReceive,//结束发牌
     E_FinishPlay,//结束出牌
     E_FinishAbandon,//结束弃牌
-    E_FinishBeChosen//结束被选择
+    E_FinishBeChosen,//结束被选择
+    Duel,
 
 }
