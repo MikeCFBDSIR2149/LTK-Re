@@ -5,6 +5,6 @@ namespace NetWork
 {
     public class MessageArrivedEventArgs
     {
-
+        
     }
 }
