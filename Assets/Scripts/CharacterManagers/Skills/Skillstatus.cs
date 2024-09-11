@@ -38,6 +38,7 @@ public class Skillstatus :MonoBehaviour
     public string animationName;
     //受到攻击的特效名字
     public string hitFxName;
-
+    //技能分类判断
+    public bool IsCritical;
 
 }
