@@ -164,6 +164,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 023cb8da98486a64bb2feee0e67b85c0, type: 2}
   - {fileID: 11400000, guid: 5f910fbfbe33a1f46bfbeadb25d5e6e1, type: 2}
   - {fileID: 11400000, guid: 94ca8e93adb60564f8cd77fa8775c765, type: 2}
+  - {fileID: 11400000, guid: ec2d8051872df6a4b92cecd5859bb233, type: 2}
+  - {fileID: 11400000, guid: 7c9d468f8b1a08b47be25756e217845b, type: 2}
+  - {fileID: 11400000, guid: f3344eb331bd8ed4cae66de705cfb47a, type: 2}
+  - {fileID: 11400000, guid: 99491902b3ae9394fb2e3e0e091f2862, type: 2}
+  - {fileID: 11400000, guid: de8a1542c659325419694f345be4f8f1, type: 2}
+  - {fileID: 11400000, guid: cce09956916ae264bbd756e1f5478ec9, type: 2}
   nextcard: {fileID: 1498811046}
 --- !u!4 &162838059
 Transform:
@@ -190,6 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 238363646}
   - component: {fileID: 238363645}
+  - component: {fileID: 238363647}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -266,6 +273,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &238363647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238363643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e943dca926296e040824dfed96d804e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: 
+  type: 0
+  rank: 0
+  suit: 0
 --- !u!1 &572319056
 GameObject:
   m_ObjectHideFlags: 0

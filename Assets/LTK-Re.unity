@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 645691426}
   - component: {fileID: 645691425}
   - component: {fileID: 645691427}
+  - component: {fileID: 645691428}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -149,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1059c1ec22c61e4e8ad8d5dda6f2bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skill: {fileID: 0}
+  Hp: 0
 --- !u!4 &645691426
 Transform:
   m_ObjectHideFlags: 0
@@ -177,7 +178,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 639f5a2309cea624fb00fa974584d237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillName: 
+  skillDescription: 
+  attackDistance: 0
+  attackTargets: []
+  owner: {fileID: 0}
+  prefabName: 
+  skillPrefab: {fileID: 0}
+  animationName: 
+  hitFxName: 
   generalCamp: {fileID: 645691425}
+--- !u!114 &645691428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645691424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43b4cd1e621e78f4881d4c9ba676af30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: 
+  skillDescription: 
+  attackDistance: 0
+  attackTargets: []
+  owner: {fileID: 0}
+  prefabName: 
+  skillPrefab: {fileID: 0}
+  animationName: 
+  hitFxName: 
+  generalCamp: {fileID: 0}
 --- !u!1 &1777922088
 GameObject:
   m_ObjectHideFlags: 0

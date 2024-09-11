@@ -22,3 +22,10 @@ public enum Rank
     K,
     A
 }
+
+public enum SkillType
+{
+    Basic,
+    Equip,
+    Skill
+}
