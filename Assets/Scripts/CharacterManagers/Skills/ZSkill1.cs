@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//接口实现
+
 public class ZSkill1 : Skillstatus
 {
     
@@ -15,12 +15,20 @@ public class ZSkill1 : Skillstatus
         attackDistance = 2;
 
     }
-
-    public void NorSkill1()
+    //迭代器测试
+    public IEnumerator NorSkill1()
     {
+        if (generalCamp.NowHp > 0)
+        {
+            generalCamp.NowHp--;
+            yield return new WaitForSeconds(1);
+            Console.WriteLine("NowHp="+generalCamp.NowHp+skillName);
+        }
+        else
+        {
+            Console.WriteLine("DEAD");
+        }
         
-        generalCamp.NowHp--;
-        Console.WriteLine("NowHp="+generalCamp.NowHp+skillName);
     }
 
  

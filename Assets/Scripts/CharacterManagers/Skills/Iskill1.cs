@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
-//技能接口尝试
+//技能接口(目标选定)
 public interface Iskill1
 {
     /// <summary>

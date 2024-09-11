@@ -42,7 +42,7 @@ public class ZhangJiao: GeneralCamp
    {
        if (GUI.RepeatButton(new Rect(25, 25, 100, 30), "RepeatButton"))
        {
-           skill1.NorSkill1();
+           StartCoroutine(skill1.NorSkill1());
        }
 
    }
