@@ -164,6 +164,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 023cb8da98486a64bb2feee0e67b85c0, type: 2}
   - {fileID: 11400000, guid: 5f910fbfbe33a1f46bfbeadb25d5e6e1, type: 2}
   - {fileID: 11400000, guid: 94ca8e93adb60564f8cd77fa8775c765, type: 2}
+  - {fileID: 11400000, guid: ec2d8051872df6a4b92cecd5859bb233, type: 2}
+  - {fileID: 11400000, guid: 7c9d468f8b1a08b47be25756e217845b, type: 2}
+  - {fileID: 11400000, guid: f3344eb331bd8ed4cae66de705cfb47a, type: 2}
+  - {fileID: 11400000, guid: 99491902b3ae9394fb2e3e0e091f2862, type: 2}
+  - {fileID: 11400000, guid: de8a1542c659325419694f345be4f8f1, type: 2}
+  - {fileID: 11400000, guid: cce09956916ae264bbd756e1f5478ec9, type: 2}
   nextcard: {fileID: 1498811046}
 --- !u!4 &162838059
 Transform:
@@ -280,6 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 
+  type: 0
   rank: 0
   suit: 0
 --- !u!1 &572319056

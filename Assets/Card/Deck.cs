@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Deck : MonoBehaviour
@@ -13,6 +12,7 @@ public class Deck : MonoBehaviour
 
     private void Awake()
     {
+        //锦囊牌-------------------
         skilldic.Add(skills[0], typeof(ArrowsShot));
         skilldic.Add(skills[1], typeof(BorrowKnife));
         skilldic.Add(skills[2], typeof(BreakBridge));
@@ -28,6 +28,15 @@ public class Deck : MonoBehaviour
         skilldic.Add(skills[12], typeof(NoFood));
         skilldic.Add(skills[13], typeof(StealSheep));
         skilldic.Add(skills[14], typeof(Swear));
+        //基础牌-------------------
+        skilldic.Add(skills[15], typeof(Kill));
+        skilldic.Add(skills[16], typeof(Dodge));
+        skilldic.Add(skills[17], typeof(Heal));
+        skilldic.Add(skills[18], typeof(Wine));
+        skilldic.Add(skills[19], typeof(Fire_K));
+        skilldic.Add(skills[20], typeof(Thunder_K));
+        //装备牌-------------------
+        //...
     }
 
     void Start()
@@ -60,7 +69,7 @@ public class Deck : MonoBehaviour
         {
             for (int j = 0; j < skills[i].ranks.Count; j++)
             {
-                Card card = new Card(skills[i].ranks[j], skills[i].suits[j], skilldic[skills[i]]);
+                Card card = new Card(skills[i].Type, skills[i].ranks[j], skills[i].suits[j], skilldic[skills[i]]);
                 deck.Add(card);
             }
         }
@@ -70,6 +79,7 @@ public class Deck : MonoBehaviour
     private void AddSkillToCard(GameObject obj, Card card)
     {
         var newSkill = obj.AddComponent(card.skill);
+        newSkill.GetComponent<BaseSkill>().type = card.type;
         newSkill.GetComponent<BaseSkill>().rank = card.rank;
         newSkill.GetComponent<BaseSkill>().suit = card.suit;
     }
