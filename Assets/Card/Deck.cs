@@ -1,49 +1,29 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using UnityEngine;
 
 public class Deck : MonoBehaviour
 {
+    //牌库
     public List<Card> deck = new List<Card>();
 
-    public SkillSO[] skills;
-    public Dictionary<SkillSO,Type> skilldic = new Dictionary<SkillSO,Type>();
+    [Header("牌型SO文件")]
+    public SkillSO[] skills;    //存放每种牌所有点数与对应花色
 
-    private void Awake()
-    {
-        //锦囊牌-------------------
-        skilldic.Add(skills[0], typeof(ArrowsShot));
-        skilldic.Add(skills[1], typeof(BorrowKnife));
-        skilldic.Add(skills[2], typeof(BreakBridge));
-        skilldic.Add(skills[3], typeof(BumperHarvest));
-        skilldic.Add(skills[4], typeof(Creat));
-        skilldic.Add(skills[5], typeof(Duel));
-        skilldic.Add(skills[6], typeof(FireAttack));
-        skilldic.Add(skills[7], typeof(Intrusion));
-        skilldic.Add(skills[8], typeof(Invulnerable));
-        skilldic.Add(skills[9], typeof(IronChain));
-        skilldic.Add(skills[10], typeof(Le));
-        skilldic.Add(skills[11], typeof(Lightning));
-        skilldic.Add(skills[12], typeof(NoFood));
-        skilldic.Add(skills[13], typeof(StealSheep));
-        skilldic.Add(skills[14], typeof(Swear));
-        //基础牌-------------------
-        skilldic.Add(skills[15], typeof(Kill));
-        skilldic.Add(skills[16], typeof(Dodge));
-        skilldic.Add(skills[17], typeof(Heal));
-        skilldic.Add(skills[18], typeof(Wine));
-        skilldic.Add(skills[19], typeof(Fire_K));
-        skilldic.Add(skills[20], typeof(Thunder_K));
-        //装备牌-------------------
-        //...
-    }
-
+    //字典
+    public Dictionary<string, Type> nameTypeDic = new Dictionary<string, Type>(); //name-type
+    public Dictionary<Type, SkillSO> typeSODic = new Dictionary<Type, SkillSO>(); //type-SO
+    
     void Start()
     {
+        RegisterSubclasses();
         InitCard();
         Shuffle();
     }
+
 
     //测试代码
     int tst = 0;
@@ -56,20 +36,47 @@ public class Deck : MonoBehaviour
             {
                 DestroyImmediate(nextcard.GetComponent<BaseSkill>());
             }
-            AddSkillToCard(nextcard, deck[tst]);
-            tst++;
+            if (deck.Count > 0)
+            {
+                AddSkillToCard(nextcard, deck[tst]);
+                tst++;
+                //Debug.Log(nextcard.GetComponent<BaseSkill>().name);
+                //Debug.Log(nextcard.GetComponent<BaseSkill>().rank);
+                //Debug.Log(nextcard.GetComponent<BaseSkill>().suit);
+            }
+            else
+                Debug.Log("没牌了");
         }
     }
     //
 
+
+
+    //注册子类到字典中
+    private void RegisterSubclasses()
+    {
+        //获取所有子类
+        var types = Assembly.GetExecutingAssembly().GetTypes()
+            .Where(type => type.IsSubclassOf(typeof(BaseSkill)));
+        //注册到字典
+        foreach (var type in types)
+        {
+            nameTypeDic[type.Name] = type;
+        }
+        foreach (SkillSO skill in skills)
+        {
+            typeSODic.Add(nameTypeDic[skill.name], skill);
+        }
+    }
+
     //初始化卡牌
     private void InitCard()
     {
-        for (int i = 0; i < skills.Length; i++)
+        foreach (var type in typeSODic.Keys)
         {
-            for (int j = 0; j < skills[i].ranks.Count; j++)
+            for (int i = 0; i < typeSODic[type].ranks.Count; i++)
             {
-                Card card = new Card(skills[i].Type, skills[i].ranks[j], skills[i].suits[j], skilldic[skills[i]]);
+                Card card = new Card(typeSODic[type].type, typeSODic[type].ranks[i], typeSODic[type].suits[i], type);
                 deck.Add(card);
             }
         }
