@@ -12,6 +12,8 @@ public class Deck : MonoBehaviour
 
     [Header("牌型SO文件")]
     public SkillSO[] skills;    //存放每种牌所有点数与对应花色
+    [Header("装备类SO文件")]
+    public EquipSO[] equips;    //存放主要装备牌类型
 
     //字典
     public Dictionary<string, Type> nameTypeDic = new Dictionary<string, Type>(); //name-type
@@ -36,7 +38,7 @@ public class Deck : MonoBehaviour
             {
                 DestroyImmediate(nextcard.GetComponent<BaseSkill>());
             }
-            if (deck.Count > 0)
+            if (tst < deck.Count)
             {
                 AddSkillToCard(nextcard, deck[tst]);
                 tst++;
@@ -57,29 +59,52 @@ public class Deck : MonoBehaviour
     {
         //获取所有子类
         var types = Assembly.GetExecutingAssembly().GetTypes()
-            .Where(type => type.IsSubclassOf(typeof(BaseSkill)));
+            .Where(type => type.IsSubclassOf(typeof(BaseSkill)) && !type.IsAbstract);
         //注册到字典
         foreach (var type in types)
         {
-            nameTypeDic[type.Name] = type;
+            nameTypeDic[type.Name] = type;      //写入子类string及对应type
         }
         foreach (SkillSO skill in skills)
         {
-            typeSODic.Add(nameTypeDic[skill.name], skill);
+            typeSODic.Add(nameTypeDic[skill.name], skill);      //写入子类type及对应SO
+        }
+        foreach (EquipSO equip in equips)
+        {
+            foreach (var item in equip.equipments)      //遍历string列表
+            {
+                if (!typeSODic.ContainsKey(nameTypeDic[item]))      //防止添加相同键值
+                    typeSODic.Add(nameTypeDic[item], equip);
+            }
         }
     }
 
     //初始化卡牌
     private void InitCard()
     {
-        foreach (var type in typeSODic.Keys)
+        int count = 0;      //记牌数
+        foreach (var type in typeSODic.Keys)    //type:具体的类
         {
+            if (type.IsSubclassOf(typeof(BaseEquip))
+                && typeSODic[type] is EquipSO equipSO)    //判断type是否为装备类,并将字典值转为equipSO
+            {
+                int i = equipSO.equipments.IndexOf(type.FullName);    //根据name找到索引,从索引开始计数
+                do
+                {
+                    Card nextCard = new Card(equipSO.type, equipSO.ranks[i], equipSO.suits[i], type);
+                    deck.Add(nextCard);
+                    count++;
+                } while (equipSO.isNextSame[i++]);    //根据列表判断下一张是否类不变
+                continue;       //进入下一个type,防止重复生成
+            }
             for (int i = 0; i < typeSODic[type].ranks.Count; i++)
             {
                 Card card = new Card(typeSODic[type].type, typeSODic[type].ranks[i], typeSODic[type].suits[i], type);
                 deck.Add(card);
+                count++;
             }
         }
+        Debug.Log("牌数:" + count);
     }
 
     //添加牌库中牌的技能组件到物体上
