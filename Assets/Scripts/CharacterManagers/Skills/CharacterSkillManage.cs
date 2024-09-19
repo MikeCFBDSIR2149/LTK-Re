@@ -27,11 +27,11 @@ public class CharacterSkillManage : MonoBehaviour
         skill.owner = gameObject;
     }
     //等待实现
-    /*public SkillStatus PrepareSkill(int id)
+    public Skillstatus PrepareSkill(int id)
     {
         //这里用了一个自己写的便于列表操作的静态方法
-        SkillStatus skill = skillStatus.ArrayFind(s => s.skillID == id);
-        if (skill != default(SkillStatus) && skill.coolRemain<=0&& skill.costSP <= characterBasic.characterSP)
+        Skillstatus skill = skillstatus.ArrayFind(s => s.skillID == id);
+        if (skill != default(Skillstatus) && skill.cost<=0)//&& skill.costSP <= generalCamp.characterSp
         {
             return skill;
         }
@@ -39,11 +39,11 @@ public class CharacterSkillManage : MonoBehaviour
         {
             return null;
         }
-    }*/
-    /*public void GenerateSkill(SkillStatus skill)
+    }
+    public void GenerateSkill(Skillstatus skill)
     {
         //这里用了对象池，管理技能对象
-        GameObject skillGo = GameObjectPool.Instance.CreateObject(skill.prefabName, skill.skillPrefab, transform.position, transform.rotation);
+        GameObject skillGo = SkillObjectPool.Instance.CreateObject(skill.prefabName, skill.skillPrefab, transform.position, transform.rotation);
  
         //调用技能释放器释放技能
         SkillDeployer skillDeployer = skillGo.GetComponent<SkillDeployer>();
@@ -51,10 +51,18 @@ public class CharacterSkillManage : MonoBehaviour
         skillDeployer.DeployerSkill();
  
         //利用对象池回收技能对象
-        GameObjectPool.Instance.CollectObject(skillGo,skill.durationTime);
+        SkillObjectPool.Instance.CollectObject(skillGo,skill.durationTime);
         //技能冷却
         StartCoroutine(CoolTimeDown(skill));
-    }*/
-
+    }
+    private IEnumerator CoolTimeDown(Skillstatus skill)
+    {
+        skill.coolRemain = skill.coolTime;
+        while (skill.coolRemain > 0)
+        {
+            yield return new WaitForSeconds(1);
+            skill.coolRemain--;
+        }
+    }
     
 }
