@@ -19,7 +19,6 @@ public class SkillObjectPool : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     public GameObject CreateObject(string prefabName, GameObject prefab, Vector3 position, Quaternion rotation)
     {
         GameObject obj;
@@ -47,5 +46,14 @@ public class SkillObjectPool : MonoBehaviour
         yield return new WaitForSeconds(delay);
         obj.SetActive(false);
         pool.Enqueue(obj);
+    }
+    public void Preload(int count)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            GameObject obj = Instantiate(prefab);
+            obj.SetActive(false);
+            pool.Enqueue(obj);
+        }
     }
 }

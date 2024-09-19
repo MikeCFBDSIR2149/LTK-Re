@@ -30,6 +30,11 @@ public class Skillstatus :MonoBehaviour
 
     //技能预制件名字
     public string prefabName;
+    public float durationTime;
+    //冷却时间
+    public int coolTime;
+    //冷却剩余
+    public int coolRemain;
 
     [HideInInspector]
     //预制件对象

@@ -40,7 +40,7 @@ public class CharacterSkillManage : MonoBehaviour
             return null;
         }
     }
-    /*public void GenerateSkill(SkillStatus skill)
+    public void GenerateSkill(Skillstatus skill)
     {
         //这里用了对象池，管理技能对象
         GameObject skillGo = SkillObjectPool.Instance.CreateObject(skill.prefabName, skill.skillPrefab, transform.position, transform.rotation);
@@ -51,10 +51,18 @@ public class CharacterSkillManage : MonoBehaviour
         skillDeployer.DeployerSkill();
  
         //利用对象池回收技能对象
-        GameObjectPool.Instance.CollectObject(skillGo,skill.durationTime);
+        SkillObjectPool.Instance.CollectObject(skillGo,skill.durationTime);
         //技能冷却
-        //StartCoroutine(CoolTimeDown(skill));
-    }*/
-
+        StartCoroutine(CoolTimeDown(skill));
+    }
+    private IEnumerator CoolTimeDown(Skillstatus skill)
+    {
+        skill.coolRemain = skill.coolTime;
+        while (skill.coolRemain > 0)
+        {
+            yield return new WaitForSeconds(1);
+            skill.coolRemain--;
+        }
+    }
     
 }

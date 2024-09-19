@@ -40,7 +40,7 @@ public abstract class SkillDeployer : MonoBehaviour
     //效果释放
     public void ImpactTargets()
     {
-        impactArray.ApplyEffect();
+        impactArray.ApplyEffect(this);
     }
     public abstract void DeployerSkill();
 
