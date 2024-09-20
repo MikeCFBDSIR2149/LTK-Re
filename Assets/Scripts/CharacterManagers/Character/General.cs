@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
-using Unity.VisualScripting;
+
 using UnityEngine;
 //角色阵营
 public enum CampType
@@ -40,7 +36,8 @@ public abstract class PeopleBase:MonoBehaviour
 //角色阵营分配以及阵营相关
 public class GeneralCamp:PeopleBase
 {
-    
+    private CommunicationBridge communicationBridge = new CommunicationBridge();
+
     private delegate void GeneralDelegate();
 
     private GeneralDelegate wuDelegate;
@@ -83,22 +80,23 @@ public class GeneralCamp:PeopleBase
                 break;
         }
     }
+
+    public void CurrentHp()
+    {
+        if (communicationBridge.playerCurrentHealth != Hp)
+        {
+            communicationBridge.playerCurrentHealth = Hp;
+            print("PlayerHp="+communicationBridge.playerCurrentHealth);
+        }
+    }
     //技能管理器
     public virtual void SkillManager()
     {
         // 实现技能逻辑
         
+        
     }
 
-    public void Current()
-    {
-        
-        int currentHp = Hp;
-        if (currentHp != NowHp)
-        {
-            Hp = NowHp;
-            print("Hp="+Hp);
-        }
-    } 
+    
 }
     

@@ -7,18 +7,21 @@ public class SkillObjectPool : MonoBehaviour
     public static SkillObjectPool Instance;
     public GameObject prefab;
     private Queue<GameObject> pool = new Queue<GameObject>();
+    private Dictionary<string, GameObject> prefabDictionary;
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
     }
+    
     public GameObject CreateObject(string prefabName, GameObject prefab)
     {
         
@@ -46,6 +49,7 @@ public class SkillObjectPool : MonoBehaviour
         obj.SetActive(false);
         pool.Enqueue(obj);
     }
+    //确保在游戏开始时预加载对象，这样可以提高性能。
     public void Preload(int count)
     {
         for (int i = 0; i < count; i++)

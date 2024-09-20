@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Resources;
-using Unity.VisualScripting;
+
 using UnityEngine;
 
 public class CharacterSkillManage : MonoBehaviour
@@ -50,7 +48,8 @@ public class CharacterSkillManage : MonoBehaviour
         
         //调用技能释放器释放技能
         SkillDeployer skillDeployer = skillGo.GetComponent<SkillDeployer>();
-        skillDeployer.SkillStatus = skill;
+        skillDeployer.SkillStatus = skill;    
+        skillDeployer.SkillStatus.prefabName = skill.prefabName;
         skillDeployer.DeployerSkill();
         
         //利用对象池回收技能对象

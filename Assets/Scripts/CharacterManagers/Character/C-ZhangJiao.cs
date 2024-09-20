@@ -14,7 +14,6 @@ public class ZhangJiao: GeneralCamp
        Name = "张角";
        Type = CampType.Wu;
        MaxHp = 4;
-       NowHp = MaxHp;
    }
 
    public void Start()
@@ -28,16 +27,16 @@ public class ZhangJiao: GeneralCamp
    }
    private void Update()
    { 
-      Current();
-      
+      SkillManager();
+      CurrentHp();
    }
 
-   public void OnGUI()
+   
+
+   public override void SkillManager()
    {
-       
-       if (GUI.RepeatButton(new Rect(25, 25, 100, 30), "RepeatButton"))
+       if (Input.GetKeyDown(KeyCode.Q))
        {
-           
            Skillstatus skill = characterSkillManage.PrepareSkill(0);
           
            if (skill != null)
@@ -49,11 +48,11 @@ public class ZhangJiao: GeneralCamp
                Debug.Log("技能无法释放：检查冷却或法力值。");
            }
        }
-       if (GUI.RepeatButton(new Rect(25, 100, 100, 30), "Button"))
+
+       if (Input.GetKeyDown(KeyCode.E))
        {
-           
            Skillstatus skill = characterSkillManage.PrepareSkill(1);
-          
+
            if (skill != null)
            {
                characterSkillManage.GenerateSkill(skill);
@@ -63,11 +62,7 @@ public class ZhangJiao: GeneralCamp
                Debug.Log("技能无法释放：检查冷却或法力值。");
            }
        }
-
-   }
-
-   public override void SkillManager()
-   {
+      
    }
    
 }
