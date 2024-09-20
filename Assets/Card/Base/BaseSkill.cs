@@ -5,7 +5,8 @@ using FSM;
 
 public abstract class BaseSkill : MonoBehaviour
 {
-    public SkillType type;
+    public CardType cardType;
+    public SkillType skillType;
     public Rank rank;
     public Suit suit;
 

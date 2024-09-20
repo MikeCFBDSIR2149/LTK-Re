@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14ff1b8851ba7e0448421fa9cf85e1e8, type: 3}
   m_Name: HorseSO
   m_EditorClassIdentifier: 
-  type: 1
+  cardType: 2
+  skillType: 1
   ranks: 03000000030000000b000000030000000b0000000b0000000b000000
   suits: 02000000030000000300000000000000000000000100000001000000
   equipments:

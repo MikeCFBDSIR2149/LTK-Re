@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b07caef22db4a4dad5ccee729485fd, type: 3}
   m_Name: Intrusion
   m_EditorClassIdentifier: 
-  type: 2
+  cardType: 0
+  skillType: 2
   ranks: 050000000b00000005000000
   suits: 000000000000000002000000

@@ -26,34 +26,6 @@ public class Deck : MonoBehaviour
         Shuffle();
     }
 
-
-    //测试代码
-    int tst = 0;
-    public GameObject nextcard;
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (nextcard.GetComponent<BaseSkill>() != null)
-            {
-                DestroyImmediate(nextcard.GetComponent<BaseSkill>());
-            }
-            if (tst < deck.Count)
-            {
-                AddSkillToCard(nextcard, deck[tst]);
-                tst++;
-                //Debug.Log(nextcard.GetComponent<BaseSkill>().name);
-                //Debug.Log(nextcard.GetComponent<BaseSkill>().rank);
-                //Debug.Log(nextcard.GetComponent<BaseSkill>().suit);
-            }
-            else
-                Debug.Log("没牌了");
-        }
-    }
-    //
-
-
-
     //注册子类到字典中
     private void RegisterSubclasses()
     {
@@ -91,7 +63,7 @@ public class Deck : MonoBehaviour
                 int i = equipSO.equipments.IndexOf(type.FullName);    //根据name找到索引,从索引开始计数
                 do
                 {
-                    Card nextCard = new Card(equipSO.type, equipSO.ranks[i], equipSO.suits[i], type);
+                    Card nextCard = new Card(typeSODic[type].cardType, equipSO.skillType, equipSO.ranks[i], equipSO.suits[i], type);
                     deck.Add(nextCard);
                     count++;
                 } while (equipSO.isNextSame[i++]);    //根据列表判断下一张是否类不变
@@ -99,7 +71,7 @@ public class Deck : MonoBehaviour
             }
             for (int i = 0; i < typeSODic[type].ranks.Count; i++)
             {
-                Card card = new Card(typeSODic[type].type, typeSODic[type].ranks[i], typeSODic[type].suits[i], type);
+                Card card = new Card(typeSODic[type].cardType, typeSODic[type].skillType, typeSODic[type].ranks[i], typeSODic[type].suits[i], type);
                 deck.Add(card);
                 count++;
             }
@@ -107,17 +79,18 @@ public class Deck : MonoBehaviour
         Debug.Log("牌数:" + count);
     }
 
-    //添加牌库中牌的技能组件到物体上
-    private void AddSkillToCard(GameObject obj, Card card)
+    //添加牌库的技能组件到物体上
+    public void AddSkillToCard(GameObject obj, Card card)
     {
         var newSkill = obj.AddComponent(card.skill);
-        newSkill.GetComponent<BaseSkill>().type = card.type;
+        newSkill.GetComponent<BaseSkill>().cardType = card.cardType;
+        newSkill.GetComponent<BaseSkill>().skillType = card.skillType;
         newSkill.GetComponent<BaseSkill>().rank = card.rank;
         newSkill.GetComponent<BaseSkill>().suit = card.suit;
     }
 
     //洗牌
-    private void Shuffle()
+    public void Shuffle()
     {
         System.Random rng = new System.Random();
         int n = deck.Count;

@@ -10,6 +10,8 @@ public class PlayerBasic : MonoBehaviour
     public int playerID;//玩家编号
     public int seatNum;//第几号位
 
+    public CardFactory<GameObject> cardFactory = new CardFactory<GameObject>();//手牌类
+
     [HideInInspector]
     public int cardsNumber
     {

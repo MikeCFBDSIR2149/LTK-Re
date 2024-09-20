@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b07caef22db4a4dad5ccee729485fd, type: 3}
   m_Name: NoFood
   m_EditorClassIdentifier: 
-  type: 2
+  cardType: 2
+  skillType: 2
   ranks: 0800000002000000
   suits: 0300000002000000

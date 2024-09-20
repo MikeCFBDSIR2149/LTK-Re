@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14ff1b8851ba7e0448421fa9cf85e1e8, type: 3}
   m_Name: ArmorSO
   m_EditorClassIdentifier: 
-  type: 1
+  cardType: 2
+  skillType: 1
   ranks: 00000000000000000000000000000000000000000c000000
   suits: 030000000200000002000000030000000200000002000000
   equipments:

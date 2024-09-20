@@ -5,7 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "SO/SkillSO")]
 public class SkillSO : ScriptableObject 
 {
-    public SkillType type;
+    public CardType cardType;
+    public SkillType skillType;
     public List<Rank> ranks;
     public List<Suit> suits;
 }
