@@ -11,7 +11,7 @@ public class ZhangJiao: GeneralCamp
 {
    private ZSkill1 skill1;  
    private ZSkill2 skill2;
-
+   private CharacterSkillManage characterSkillManage;
 
    private void Awake()
    {
@@ -31,11 +31,12 @@ public class ZhangJiao: GeneralCamp
       print("HP="+Hp);
       skill1 = GetComponent<ZSkill1>();
       skill2 = GetComponent<ZSkill2>();
-
+      characterSkillManage = GetComponent<CharacterSkillManage>();
    }
    private void Update()
    { 
       Current();
+      
    }
 
    public void OnGUI()
@@ -43,6 +44,16 @@ public class ZhangJiao: GeneralCamp
        if (GUI.RepeatButton(new Rect(25, 25, 100, 30), "RepeatButton"))
        {
            StartCoroutine(skill1.NorSkill1());
+           Skillstatus skill = characterSkillManage.PrepareSkill(0);
+          
+           if (skill != null)
+           {
+               characterSkillManage.GenerateSkill(skill);
+           }
+           else
+           {
+               Debug.Log("技能无法释放：检查冷却或法力值。");
+           }
        }
 
    }

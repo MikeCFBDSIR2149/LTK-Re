@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14ff1b8851ba7e0448421fa9cf85e1e8, type: 3}
+  m_Name: ArmorSO
+  m_EditorClassIdentifier: 
+  type: 1
+  ranks: 00000000000000000000000000000000000000000c000000
+  suits: 030000000200000002000000030000000200000002000000
+  equipments:
+  - BaGua
+  - BaGua
+  - RenWang
+  - TengJia
+  - TengJia
+  - BaiShi
+  isNextSame: 010000010000

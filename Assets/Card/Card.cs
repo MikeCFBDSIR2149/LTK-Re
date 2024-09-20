@@ -2,7 +2,6 @@ using System;
 
 public class Card 
 {
-    public string Name;
     public SkillType type;
     public Rank rank;
     public Suit suit;
