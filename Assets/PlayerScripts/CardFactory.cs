@@ -6,7 +6,6 @@ using UnityEngine;
 public enum CardType
 {
     Normal,
-    Weapon,
     Equipment,
     Influence
 }
@@ -14,7 +13,6 @@ public enum CardType
 public class CardFactory <T> where T :class
 {
     public Dictionary<string,List<T>> normalFactory = new Dictionary<string,List<T>>();
-    public Dictionary<string,List<T>> weaponFactory = new Dictionary<string,List<T>>();
     public Dictionary<string,List<T>> equipmentFactory = new Dictionary<string,List<T>>();
     public Dictionary<string,List<T>> influenceFactory = new Dictionary<string,List<T>>();
     /// <summary>
@@ -43,7 +41,7 @@ public class CardFactory <T> where T :class
     /// 从所有牌库中随机拿一张牌
     /// </summary>
     /// <returns>T</returns>
-    public T GetARandomCardFromAll()
+    public T GetARandomCardFromAll(CardType escape)
     {
         Array cardTypes = Enum.GetValues(typeof(CardType));
         CardType randomType = (CardType)cardTypes.GetValue(UnityEngine.Random.Range(0, cardTypes.Length));
@@ -70,9 +68,6 @@ public class CardFactory <T> where T :class
         {
             case CardType.Normal:
                 dic = normalFactory;
-                break;
-            case CardType.Weapon:
-                dic = weaponFactory;
                 break;
             case CardType.Equipment:
                 dic = equipmentFactory;
