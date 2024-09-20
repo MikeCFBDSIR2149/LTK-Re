@@ -14,9 +14,7 @@ namespace FSM
     public class CharacterFSMController : MonoSingleton<CharacterFSMController>
     {
         [HideInInspector]
-        public Dictionary<int, FSMBase> characterFSMs;//key:玩家ID，value：玩家状态机
-        [HideInInspector]
-        public List<int> playerIDs;//确定玩家顺序
+        public Dictionary<int, FSMBase> characterFSMs = new Dictionary<int, FSMBase>();//key:玩家ID，value：玩家状态机
         private int idsIndex=0;
         private int roundValue;
         [HideInInspector]
@@ -32,11 +30,17 @@ namespace FSM
                 {
                     characterAction[id] = false;
                 }
-                characterFSMs[playerIDs[idsIndex]].bridge.actionPermission = true;
+                foreach (var player in PlayersManager.Instance.players.Values)
+                {
+                    if (player.seatNum==1)
+                    {
+                        characterFSMs[player.playerID].bridge.actionPermission = true;
+                    }
+                }
             }
         }
         [HideInInspector]
-        public Dictionary<int, bool> characterAction;
+        public Dictionary<int, bool> characterAction = new Dictionary<int, bool>();
 
         private RoundState currentRoundValue;
         [HideInInspector]
@@ -62,7 +66,9 @@ namespace FSM
         public override void Init()
         {
             base.Init();
-            characterFSMs = new Dictionary<int, FSMBase>();
+        }
+        private void Start()
+        {
             round = 1;
             currentRound = RoundState.Start;
         }

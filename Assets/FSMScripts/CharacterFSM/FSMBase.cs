@@ -17,15 +17,14 @@ namespace FSM
         private FSMState defaultState;
 
         #region 查找数据
-        public CommunicationBridge bridge;
+        public CommunicationBridge bridge = new CommunicationBridge();
         private void InitComponent()
         {
-            bridge = new CommunicationBridge();
             CharacterFSMController.Instance.characterFSMs.Add(bridge.playerID, this);//添加状态机
         }
         #endregion
 
-        private void Start()
+        private void Awake()
         {
             InitComponent();
             ConfigFSM();
@@ -34,6 +33,7 @@ namespace FSM
         private void ConfigFSM()
         {
             states = new List<FSMState>();
+
             StartState start = new StartState();
             states.Add(start);
             start.AddMap(FSMTriggerID.AfterStart, FSMStateID.Wait);

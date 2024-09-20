@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayersManager : MonoSingleton<PlayersManager>
 {
     [HideInInspector]
-    public Dictionary<int,PlayerBasic> players;
+    public Dictionary<int,PlayerBasic> players = new Dictionary<int, PlayerBasic>();
     [HideInInspector]
     public Dictionary<Vector2, int> distanceSearch;
     protected override void Awake()
