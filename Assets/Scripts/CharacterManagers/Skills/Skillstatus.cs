@@ -5,8 +5,9 @@ using UnityEngine;
 
 
 [Serializable]
-public class Skillstatus :MonoBehaviour
+public class Skillstatus 
 {
+    public CharacterSkillType skillType;
     //技能ID
     public int skillID;
 
@@ -30,6 +31,7 @@ public class Skillstatus :MonoBehaviour
 
     //技能预制件名字
     public string prefabName;
+    
     public float durationTime;
     //冷却时间
     public int coolTime;

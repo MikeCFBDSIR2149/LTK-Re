@@ -8,5 +8,6 @@ public class CriticalImpactEffect : IImpactEffect
     public void ApplyEffect(SkillDeployer deployer)
     {
         Console.WriteLine("skill02");
+        Debug.Log("GOOD");
     }
 }

@@ -19,19 +19,18 @@ public class SkillObjectPool : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public GameObject CreateObject(string prefabName, GameObject prefab, Vector3 position, Quaternion rotation)
+    public GameObject CreateObject(string prefabName, GameObject prefab)
     {
+        
         GameObject obj;
         if (pool.Count > 0)
         {
             obj = pool.Dequeue();
             obj.SetActive(true);
-            obj.transform.position = position;
-            obj.transform.rotation = rotation;
         }
         else
         {
-            obj = Instantiate(prefab, position, rotation);
+            obj = Instantiate(prefab);
         }
         return obj;
     }

@@ -26,6 +26,7 @@ public abstract class SkillDeployer : MonoBehaviour
     //初始化
     private void InitDeployer()
     {
+       
         //通过工厂类的方法根据技能数据，生成对应脚本放入接口的变量内
         //selector = DeployerConfigFactory.CreateIAttackSelector(skillStatus);
         impactArray = DeployerConfigFactory.CreateIImpactEffect(skillStatus);

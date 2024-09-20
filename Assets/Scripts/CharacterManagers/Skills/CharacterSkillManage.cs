@@ -10,7 +10,7 @@ public class CharacterSkillManage : MonoBehaviour
     public Skillstatus[] skillstatus;
 
     public GeneralCamp generalCamp;
-
+    
     private void Start()
     {
         for (int i = 0; i < skillstatus.Length; i++)
@@ -23,6 +23,7 @@ public class CharacterSkillManage : MonoBehaviour
 
     private void IntSkill(Skillstatus skill)
     {
+       
         skill.skillPrefab = Resources.Load<GameObject>(skill.prefabName);
         skill.owner = gameObject;
     }
@@ -31,7 +32,7 @@ public class CharacterSkillManage : MonoBehaviour
     {
         //这里用了一个自己写的便于列表操作的静态方法
         Skillstatus skill = skillstatus.ArrayFind(s => s.skillID == id);
-        if (skill != default(Skillstatus) && skill.cost<=0)//&& skill.costSP <= generalCamp.characterSp
+        if (skill != default(Skillstatus) && skill.cost>=0)//&& skill.costSP <= generalCamp.characterSp
         {
             return skill;
         }
@@ -42,14 +43,16 @@ public class CharacterSkillManage : MonoBehaviour
     }
     public void GenerateSkill(Skillstatus skill)
     {
+        
         //这里用了对象池，管理技能对象
-        GameObject skillGo = SkillObjectPool.Instance.CreateObject(skill.prefabName, skill.skillPrefab, transform.position, transform.rotation);
+        GameObject skillGo = SkillObjectPool.Instance.CreateObject(skill.prefabName, skill.skillPrefab);
  
+        
         //调用技能释放器释放技能
         SkillDeployer skillDeployer = skillGo.GetComponent<SkillDeployer>();
         skillDeployer.SkillStatus = skill;
         skillDeployer.DeployerSkill();
- 
+        
         //利用对象池回收技能对象
         SkillObjectPool.Instance.CollectObject(skillGo,skill.durationTime);
         //技能冷却
