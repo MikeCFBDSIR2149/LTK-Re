@@ -8,6 +8,7 @@ public class PlayerBasic : MonoBehaviour
     private FSMBase characterFSMBase;
     private CommunicationBridge characterBridge;
 
+
     public int playerID;//玩家编号
     public int seatNum;//第几号位
 

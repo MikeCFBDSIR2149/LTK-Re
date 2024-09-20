@@ -17,6 +17,38 @@ public class CardFactory <T> where T :class
     public Dictionary<string,List<T>> weaponFactory = new Dictionary<string,List<T>>();
     public Dictionary<string,List<T>> equipmentFactory = new Dictionary<string,List<T>>();
     public Dictionary<string,List<T>> influenceFactory = new Dictionary<string,List<T>>();
+    /// <summary>
+    /// 随机拿一张牌
+    /// </summary>
+    /// <param name="type">从哪个牌库里拿</param>
+    /// <returns>T</returns>
+    public T GetARandomCardFromSingle(CardType type)
+    {
+        int randomIndex = UnityEngine.Random.Range(0,TypeToFactory(type).Count);
+        List<T> cards= new List<T>();
+        foreach (List<T> item in TypeToFactory(type).Values)
+        {
+            if (randomIndex==0)
+            {
+                cards = item;
+                break;
+            }
+            randomIndex--;
+        }
+        T card = cards[UnityEngine.Random.Range(0, cards.Count)];
+        RemoveCard(type, card);
+        return card;
+    }
+    /// <summary>
+    /// 从所有牌库中随机拿一张牌
+    /// </summary>
+    /// <returns>T</returns>
+    public T GetARandomCardFromAll()
+    {
+        Array cardTypes = Enum.GetValues(typeof(CardType));
+        CardType randomType = (CardType)cardTypes.GetValue(UnityEngine.Random.Range(0, cardTypes.Length));
+        return GetARandomCardFromSingle(randomType);
+    }
     public bool AddCard( CardType type, string cardName,T card)
     {
         Dictionary<string, List<T>> dic = TypeToFactory(type);

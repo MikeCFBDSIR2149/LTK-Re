@@ -34,11 +34,11 @@ public class PlayersManager : MonoSingleton<PlayersManager>
             {
                 if (i != j && i == player.seatNum)
                 {
-                    distanceSearch[new Vector2(i, j)] = Mathf.Abs(i - j) - player.distanceMinus; 
+                    distanceSearch[new Vector2(i, j)] = Mathf.Min(Mathf.Abs(i - j),players.Count- Mathf.Abs(i - j)) - player.distanceMinus; 
                 }
                 if (i != j && j == player.seatNum)
                 {
-                    distanceSearch[new Vector2(i, j)] = Mathf.Abs(i - j) + player.distancePlus;
+                    distanceSearch[new Vector2(i, j)] = Mathf.Min(Mathf.Abs(i - j), players.Count - Mathf.Abs(i - j)) + player.distancePlus;
                 }
             }
         }
