@@ -333,7 +333,7 @@ MonoBehaviour:
     attackTargets: []
     owner: {fileID: 1215221669}
     prefabName: Prefab1
-    durationTime: 0
+    durationTime: 1
     coolTime: 5
     coolRemain: 0
     skillPrefab: {fileID: 0}
@@ -351,7 +351,7 @@ MonoBehaviour:
     attackTargets: []
     owner: {fileID: 1215221669}
     prefabName: Prefab2
-    durationTime: 0
+    durationTime: 1
     coolTime: 5
     coolRemain: 0
     skillPrefab: {fileID: 0}

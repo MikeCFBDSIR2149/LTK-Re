@@ -41,7 +41,6 @@ public class CharacterSkillManage : MonoBehaviour
     }
     public void GenerateSkill(Skillstatus skill)
     {
-        
         //这里用了对象池，管理技能对象
         GameObject skillGo = SkillObjectPool.Instance.CreateObject(skill.prefabName, skill.skillPrefab);
  
@@ -49,7 +48,7 @@ public class CharacterSkillManage : MonoBehaviour
         //调用技能释放器释放技能
         SkillDeployer skillDeployer = skillGo.GetComponent<SkillDeployer>();
         skillDeployer.SkillStatus = skill;    
-        skillDeployer.SkillStatus.prefabName = skill.prefabName;
+        //skillDeployer.SkillStatus.prefabName = skill.prefabName;
         skillDeployer.DeployerSkill();
         
         //利用对象池回收技能对象
