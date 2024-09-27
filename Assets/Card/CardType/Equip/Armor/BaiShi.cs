@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class BaiShi : Armor
+public sealed class BaiShi : Armor
 
 {
     public BaiShi() { Name = "BaiShi"; }

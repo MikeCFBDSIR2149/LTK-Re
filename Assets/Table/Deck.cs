@@ -31,7 +31,8 @@ public class Deck : MonoBehaviour
     {
         //获取所有子类
         var types = Assembly.GetExecutingAssembly().GetTypes()
-            .Where(type => type.IsSubclassOf(typeof(BaseSkill)) && !type.IsAbstract);
+            .Where(type => type.IsSubclassOf(typeof(BaseSkill)) && !type.IsAbstract)
+            .ToList();
         //注册到字典
         foreach (var type in types)
         {

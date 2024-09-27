@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dodge : BaseSkill
+public sealed class Dodge : BaseSkill
 {
     protected override void CardSkill(FSMBase player, FSMBase target)
     {

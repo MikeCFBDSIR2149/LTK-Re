@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Kill : BaseSkill
+public sealed class Kill : BaseSkill
 {
     protected override void CardSkill(FSMBase player, FSMBase target)
     {

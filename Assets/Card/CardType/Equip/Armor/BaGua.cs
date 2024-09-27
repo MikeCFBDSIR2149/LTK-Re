@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 
-public class BaGua : Armor
+public sealed class BaGua : Armor
 
 {
     public BaGua() { Name = "BaGua"; }

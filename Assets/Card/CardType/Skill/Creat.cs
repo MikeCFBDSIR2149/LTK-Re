@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //出牌阶段，对你使用。你摸两张牌。
-public class Creat : BaseSkill
+public sealed class Creat : BaseSkill
 {
     protected override void CardSkill(FSMBase player, FSMBase target)
     {

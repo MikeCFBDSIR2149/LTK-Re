@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CiXiong : Weapon
+public sealed class CiXiong : Weapon
 {
     public CiXiong() { distance = 2; Name = "CiXiong"; }
 

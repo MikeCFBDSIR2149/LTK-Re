@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BorrowKnife : BaseSkill
+public sealed class BorrowKnife : BaseSkill
 {
     protected override void CardSkill(FSMBase player, FSMBase target)
     {

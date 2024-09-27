@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wine : BaseSkill
+public sealed class Wine : BaseSkill
 {
     protected override void CardSkill(FSMBase player, FSMBase target)
     {

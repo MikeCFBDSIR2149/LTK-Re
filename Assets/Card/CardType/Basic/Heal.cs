@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Heal : BaseSkill
+public sealed class Heal : BaseSkill
 {
     protected override void CardSkill(FSMBase player, FSMBase target)
     {

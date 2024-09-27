@@ -5,7 +5,7 @@ using UnityEngine;
 
 //标准、国战、3V3
 //出牌阶段，对距离为1的一名区域里有牌的其他角色使用。你获得其区域里的一张牌。
-public class StealSheep : BaseSkill
+public sealed class StealSheep : BaseSkill
 {
     protected override void CardSkill(FSMBase player, FSMBase target)
     {
